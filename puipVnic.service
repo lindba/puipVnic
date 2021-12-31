@@ -1,0 +1,13 @@
+#ol7: #/lib/systemd/system/onBoot.service
+[Unit]
+After=network.target
+
+[Service]
+ExecStart=/opt/puipVnic/ns.sh $(hostname) puip
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=42s
+
+[Install]
+WantedBy=multi-user.target
