@@ -1,8 +1,8 @@
-#ol7: #/lib/systemd/system/onBoot.service
 [Unit]
 After=network.target
 
 [Service]
+WorkingDirectory=/opt/puipVnic
 ExecStart=/opt/puipVnic/ns.sh hostname puip
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
