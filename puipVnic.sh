@@ -1,6 +1,6 @@
 #!/usr/bin/env -S bash
 # /opt/puipVnic/puipVnic.sh
-cd /opt/puipVnic;
+mkdir /opt/puipVnic; cd /opt/puipVnic;
 ns=$(hostname);
 puip=$(oci-public-ip -g) ; [[ $? == 1 ]] && puip=$(curl --insecure  https://ipinfo.io/ip);
 gw=$(echo $puip | cut -d. -f1,2,3).1;
