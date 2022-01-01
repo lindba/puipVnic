@@ -9,11 +9,11 @@ instIp=$(ip addr show dev enp0s3 | grep 'inet ' | tr -s ' ' | cut -d ' ' -f3);
 nscMac=$(ip link show dev $instIfc | grep ether | tr -s ' ' | cut -d' ' -f3);
 cat > ns_$ns.cfg <<!
 ip=$puip
-pfx=24 
+pfx=24
 gw=$gw
 nscMac=$nscMac
 nsh=nsh$ns
-nsc=ns$ns
+nsc=${instIfc}1
 brns=brns
 instIfc=$instIfc
 instIp=$instIp
@@ -25,3 +25,5 @@ curl -O https://raw.githubusercontent.com/lindba/puipVnic/main/puipVnic.service;
 <<cloudInit
   curl -O https://raw.githubusercontent.com/lindba/puipVnic/main/puipVnic.sh; chmod +x puipVnic.sh; ./puipVnic.sh
 cloudInit
+
+
