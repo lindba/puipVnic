@@ -20,7 +20,7 @@ instIfc=$instIfc
 instIp=$instIp
 !
 curl -O https://raw.githubusercontent.com/lindba/scripts/master/ns/ns.sh; chmod +x ns.sh;
-curl -O https://raw.githubusercontent.com/lindba/puipVnic/main/puipVnic.service; sed -i -e s/hostname/$(hostname)/g puipVnic.service; mv puipVnic.service /lib/systemd/system/; systemctl enable puipVnic;
+curl -O https://raw.githubusercontent.com/lindba/puipVnic/main/puipVnic.service; sed -i -e s/hostname/$(hostname)/g puipVnic.service; mv puipVnic.service /lib/systemd/system/; for act in start enable; do systemctl $act puipVnic; done;
 
 
 <<cloudInit
