@@ -1,5 +1,6 @@
 #!/usr/bin/env -S bash
 # /opt/puipVnic/puipVnic.sh
+systemctl stop firewalld; systemctl disable firewalld; 
 mkdir /opt/puipVnic; cd /opt/puipVnic;
 ns=$(hostname);
 puip=$(oci-public-ip -g) ; [[ $? == 1 ]] && puip=$(curl --insecure  https://ipinfo.io/ip);
