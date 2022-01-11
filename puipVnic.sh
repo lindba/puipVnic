@@ -1,4 +1,5 @@
-#!/usr/bin/env -S bash
+#!/bin/bash
+
 # /opt/puipVnic/puipVnic.sh
 systemctl stop firewalld; systemctl disable firewalld; 
 mkdir /opt/puipVnic; cd /opt/puipVnic;
