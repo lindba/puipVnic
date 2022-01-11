@@ -6,7 +6,7 @@ mkdir /opt/puipVnic; cd /opt/puipVnic;
 ns=$(hostname);
 puip=$(oci-public-ip -g) ; [[ $? == 1 ]] && puip=$(curl --insecure  https://ipinfo.io/ip);
 gw=$(echo $puip | cut -d. -f1,2,3).1;
-instIfc=$(grep  '^en' /proc/net/dev | head -1 | cut -d: -f1);
+instIfc=$(grep  'en' /proc/net/dev | head -1 | cut -d: -f1);
 instIp=$(ip addr show | grep 'inet ' | tr -s ' ' | cut -d ' ' -f3 | grep -v 127|head -1);
 nscMac=$(ip link show dev $instIfc | grep ether | tr -s ' ' | cut -d' ' -f3);
 cat > ns_$ns.cfg <<!
