@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/opt/puipVnic
-ExecStart=/opt/puipVnic/ns.sh hostname puip
+ExecStart=/opt/puipVnic/ns.sh hostname nsn
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=on-failure
